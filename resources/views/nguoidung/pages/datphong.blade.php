@@ -5,39 +5,52 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6 mx-auto text-center mb-5 section-heading">
-            <h2 class="mb-5">Danh sách phòng</h2>
+            <h2 class="mb-5">Xác nhận thông tin</h2>
           </div>
           <table class="table" style="width: 60%; margin: 0 auto;">
           <tbody>
             <tr>
-              <td><p><strong>Ten:</strong><span>{{$checkout->ten}}</span></p></td>
+              <td><p><font color="#000000"><strong>Họ và tên:</strong></font><span>&nbsp {{$checkout->ten}}</span></p></td>
             </tr>
             <tr>
-              <td><p><strong>Nơi Đi:</strong><span>&nbspdanh</span></p></td>
+              <td><p><strong>Email:</strong><span>&nbsp {{$checkout->email}}</span></p></td>
             </tr>
             <tr>
-              <td><p><strong>Nơi Đến:</strong><span>&nbspdanh</span></p></td>
+              <td><p><strong>Số điện thoại:</strong><span>&nbsp {{$checkout->sdt}}</span></p></td>
             </tr>
             <tr>
-              <td><p><strong>Giờ Đi:</strong><span>&nbspdanh</span></p></td>
+              <td><p><strong>Số CMND:</strong><span>&nbsp {{$checkout->cmnd}}</span></p></td>
             </tr>
             <tr>
-              <td><p><strong>Giờ Đến:</strong><span>&nbspdanh</span></p></td>
+              <td><p><strong>Loại Phòng:</strong><span>&nbsp {{$checkout->tenloai}}</span></p></td>
             </tr>
             <tr>
-              <td><p><strong>Số Ghế:</strong><span>&nbspdanh</span></p></td>
+              <td><p><strong>Tên phòng</strong><span>&nbsp {{$checkout->tenphong}}</span></p></td>
             </tr>
             <tr>
-              <td><p><strong>Tên Khách Hàng:</strong><span>&nbspdanh</span></p></td>
+              <td><p><strong>Số lượng:</strong><span>&nbsp {{$checkout->soluongphong}}</span></p></td>
+            </tr>
+            <tr>
+              <td><p><strong>Tầng:</strong><span>&nbsp {{$checkout->sotang}}</span></p></td>
+            </tr>
+            <tr>
+              <td><p><strong>Đơn Giá:</strong><span>&nbsp {{$checkout->giaphong}}</span></p></td>
+            </tr>
+            <tr>
+              <td><p><strong>Ngày Nhận Phòng:</strong><span>&nbsp {{date('d-m-yy',strtotime($checkout->ngaynhanphong))}}</span></p></td>
+            </tr>
+            <tr>
+              <td><p><strong>Ngày Trả Phòng:</strong><span>&nbsp {{date('d-m-yy',strtotime($checkout->ngaytraphong))}}</span></p></td>
+            </tr>
+            <tr>
+              <td><p><strong>Tổng Giá:</strong><span>&nbsp {{$tonggia * $checkout->soluongphong}}</span></p></td>
             </tr>
             <tr>
               <td>
-                <div class="form-datve">
-                  <form id="form-datve" action="#" method="post">
+                <div class="form-datve" >
+                  <form id="form-datve" action="{{route('success')}}" method="post" >
                     @csrf
-                    <input type="hidden" name="soghe" >
-                    <input type="hidden" name="idChuyen" >
-                    <button type="submit" class="button-submit">Đặt Vé</button>
+                    <button type="submit" class="button-submit" style="margin: 0 auto;">Đặt phòng</button>
                   </form>
                 </div>
               </td>
@@ -49,6 +62,22 @@
     </div>
 
 <style type="text/css">
+    .button-submit{
+    width: 150px;
+    padding: 8px 0;
+    border: none;
+    border-radius: 50px;
+    background-color: #00b8ff;    
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+    cursor: pointer;
+    float: right;
+  }
+  .button-submit:hover{
+    background: #fa1907ed;
+  }
 </style>
 @endsection
 

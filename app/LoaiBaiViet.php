@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class LoaiBaiViet extends Model
 {
     protected $table='loaibaiviet';
-    protected $fillable = ['tenloai'];
+    protected $fillable = ['tenloai','tenkhongdau'];
 
     public function baiviet()
     {

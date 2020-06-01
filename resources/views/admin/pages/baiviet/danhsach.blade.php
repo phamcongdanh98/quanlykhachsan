@@ -53,7 +53,7 @@
                         </div>
                         <div class="form-group">
                             <label for="name">Nội dung</label>
-                            <textarea name="noidung" id="demo" class="form-control ckeditor" rows="6"></textarea>
+                            <textarea name="noidung" class="form-control ckeditor" rows="6"></textarea>
                         </div>
                         <div class="form-group">
                             <label>Hình ảnh</label>
@@ -82,38 +82,8 @@
 
                 <!-- Modal body -->
 
-                <div class="modal-body">
-                    <form action="{{route('suabaiviet')}}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <input type="hidden" name="id" id="sua-id">
-                        <div class="form-group">
-                            <label>Loại bài viết</label>
-                            <select class="form-control" name="loaibaiviet">
-                                @foreach($loaibaiviet as $lbv)
-                                <option value="{{$lbv->id}}">{{$lbv->tenloai}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="name">Tiêu đề</label>
-                            <input type="text" name="tieude" class="form-control" id="sua-tieude" >
-                        </div>
-                        <div class="form-group">
-                            <label for="name">Tóm tắt</label>
-                            <textarea name="tomtat" class="form-control" id="sua-tomtat" rows="6"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <div id="sua-noidung1">
-                            <label for="name">Nội dung</label>                         
-                            <textarea name="noidung" id="demo" class="form-control ckeditor" rows="6"></textarea>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label>Hình ảnh</label>
-                            <input type="file" name="hinh" class="form-control" id="sua-hinhanh">
-                        </div>
-                        <button type="submit" class="btn btn-success" style="width: 120px;">Sửa</button>
-                    </form>
+                <div class="modal-body" id="form-edit">
+                    
                 </div>
                 <!-- Modal footer -->
                 <div class="modal-footer">
@@ -190,20 +160,31 @@
 
 @section('script')
 <script type="text/javascript">
+  // Add the following code if you want the name of the file appear on select
+  $(".custom-file-input").on("change", function() {
+    var fileName = $(this).val().split("\\").pop();
+    $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+  });
+</script>
+<script type="text/javascript" src="{{asset('admin_asset/ckeditor/ckeditor.js')}}"></script>
+<script type="text/javascript">
     $(document).ready(function(){
         $(".sua").click(function(){
-            id = $(this).data('id');
-            tieude = $(this).data('tieude');
-            tomtat = $(this).data('tomtat');
-            noidung = $(this).data('noidung');
+            id = $(this).data('id');  
+            $.ajax({
+                url:'{{route('ajaxBaiViet')}}',
+                type:'get',
+                data:{id:id},
+                success:function(d){
+                    $('#form-edit').html(d);
+                },
+                error:function(){
+                    alert('Không thể hoàn thành thao tác này');
+                }
+            })
             hinh = $(this).data('hinh');
-            idloaibaiviet= $(this).data('idLoaiBaiViet');
-            $('#sua-id').val(id);
-            $('#sua-tieude').val(tieude);
-            $('#sua-tomtat').val(tomtat);
-            $('#sua-noidung').val(noidung);
-            $('#sua-hinh').val(hinh);
-
+            duongdan="anhbaiviet/";
+            $('#hinhsua').attr('src',duongdan+hinh);  
         });
     });
     $(".xoa").click(function(){
@@ -217,4 +198,5 @@
         };
     });
 </script>
+
 @endsection

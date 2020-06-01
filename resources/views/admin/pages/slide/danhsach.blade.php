@@ -19,6 +19,11 @@
         {{session('thongbao')}}
     </div>
     @endif
+    @if(session('loi'))
+    <div class="alert alert-danger">
+        {{session('loi')}}
+    </div>
+    @endif
 
     <div class="modal fade" id="myModal">
         <div class="modal-dialog  modal-dialog-centered">
@@ -189,7 +194,7 @@
             $('#sua-tieude').val(tieude);
             $('#sua-chuthich').val(chuthich);
             $('#sua-hinh').val(hinh);
-            $('#hinh1').attr('src',duongdan+hinh);
+            $('#hinhsua').attr('src',duongdan+hinh);
         })
     })
     $('.custom-control-input').click(function(){

@@ -45,7 +45,7 @@
             <div class="container">
               <div class="row">
                 <div class="col-md-6 mx-auto text-center mb-5 section-heading">
-                  <h2 class="mb-5" style="text-transform: uppercase;">Phòng Khác</h2>
+                  <h2 class="mb-5" style="text-transform: uppercase;">Tìm kiếm phòng trống</h2>
                    <form action="{{route('timkiem')}}" method="get" id="datphong_form">
                         <input type="hidden" name="id" value="{{$phong1->id}}">
                         
@@ -64,7 +64,7 @@
             
                           <div id="thuthoi">
                             
-                            <button type="submit" class="btn btn-success" style="width: 120px;">Thêm</button>
+                            <button type="submit" class="btn btn-success" style="width: 120px;">Tìm kiếm</button>
                         </div>
                     </form>
                 </div>
@@ -84,83 +84,6 @@
               </div>
             </div>
           </div>
-        <div class="modal fade" id="myModal">
-        <div class="modal-dialog  modal-dialog-centered">
-            <div class="modal-content">
-
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Đặt phòng</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-
-
-                    <form action="{{route('checkout')}}" method="POST" enctype="multipart/form-data" id="datphong_form">
-                        @csrf
-                        <input type="hidden" name="id" value="{{$phong1->id}}">
-                        <div class="form-group">
-                            <div class="col-md-12">
-                                <label for="name">Họ tên: </label> <span class="error_form" id="loi_ten_thongbao"></span>
-                                <input type="text" name="ten" class="form-control" id="ten_form">
-                            </div>
-                        </div>
-                        <div style="display: flex;" class="form-group">
-                            <div class="col-md-6">
-                                <label for="name">Email</label> <span class="error_form" id="loi_email_thongbao"></span>
-                                <input type="email" name="email" class="form-control" id="email_form">
-                            </div>
-                           <div class="col-md-6">
-                                <label for="name">Số cmnd: </label> <span class="error_form" id="loi_cmnd_thongbao"></span>
-                                <input type="text" name="cmnd" class="form-control" id="cmnd_form">
-                            </div>
-                        </div>
-
-                        <div style="display: flex;" class="form-group">                         
-                            <div class="col-md-6">
-                               <label for="name">Số điện thoại: </label> <span class="error_form" id="loi_sdt_thongbao"></span>
-                                <input type="text" name="sdt" class="form-control" id="sdt_form">
-                             </div>
-                             <div class="col-md-6">
-                                 <label >Loại phong</label>
-                                <select  class="form-control" name="phong" id="changephong" >
-                                    @foreach($phong as $p)
-                                    <option id="{{$p->id}}" value="{{$p->id}}">{{$p->tenphong}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div style="display: flex;" class="form-group">
-                            <div class="col-md-6">
-                                <label for="name">Ngày nhận phòng</label>
-                                <input type="date" name="ngaynhanphong" class="form-control">
-                            </div>
-                             <div class="col-md-6">
-                                <label for="name">Ngày trả phòng</label>
-                                <input type="date" name="ngaytraphong" class="form-control">
-                            </div>
-                        </div>
-                         <div style="display: flex;" class="form-group">
-                            <div class="col-md-6">
-                                <label for="name">Số lượng phòng</label>
-                                <input type="text" name="soluongphong" class="form-control">
-                            </div>
-                             <div class="col-md-6">
-                                <label for="name">Số lượng khách</label>
-                                <input type="text" name="soluongkhach" class="form-control">
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                          <label for="name">Gia Phòng</label>
-                          <div id="thuthoi">
-                            <input type="text" name="giaphong" class="form-control" id="giaphong">
-                            </div>
-                            <button type="submit" class="btn btn-success" style="width: 120px;">Thêm</button>
-                        </div>
-                    </form>
-            </div>
-        </div>
-    </div>
-
 
     </div>
     </div>
@@ -171,12 +94,13 @@
     background: none;
 }
 
-#booking:hover{
-    
+#booking-btn:hover{
+    color: black;
 }
 
 #booking-btn{
   color: #F23A2E;
+  cursor: pointer;
 }
 
 div.price {

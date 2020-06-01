@@ -29,6 +29,7 @@ Route::group(['prefix' =>'admin'],function(){
 		Route::post('them','BaiVietController@postThem')->name('thembaiviet');
 		Route::post('xoa','BaiVietController@postXoa')->name('xoabaiviet');
 		Route::post('sua','BaiVietController@postSua')->name('suabaiviet');
+		Route::get('ajax','BaiVietController@getAjax')->name('ajaxBaiViet');
 
 	});
 
@@ -62,11 +63,18 @@ Route::group(['prefix' =>'admin'],function(){
 		Route::post('sua','SlideController@postSua')->name('suaslide');
 		Route::post('tinhtrang','SlideController@TinhTrangSlide')->name('tinhtrangslide');
 	});
-	Route::group(['prefix'=>'thongtin'],function(){
+	Route::group(['prefix'=>'thongtinkhachsan'],function(){
 		Route::get('thongtin','ThongTinController@getThongTin')->name('thongtin');
-		Route::post('sua','ThongTinController@suaThongTin')->name('suathongtin');
-		Route::get('gioithieu','ThongTinController@getGioiThieu')->name('gioithieu');
-		Route::post('suagioithieu','ThongTinController@suagioithieu')->name('suagioithieu');
+		Route::post('suathongtin','ThongTinController@suaThongTin')->name('suathongtin');
+		Route::get('gioithieu','GioiThieuController@getGioiThieu')->name('gioithieu');
+		Route::post('suagioithieu','GioiThieuController@suagioithieu')->name('suagioithieu');
+	});
+	Route::group(['prefix'=>'anhkhachsan'],function(){
+		Route::get('danhsach','AnhKhachSanController@getDanhsach')->name('anhkhachsan');
+		Route::post('them','AnhKhachSanController@postThem')->name('themanhks');
+		Route::post('xoa','AnhKhachSanController@postXoa')->name('xoaanhks');
+		Route::post('sua','AnhKhachSanController@postSua')->name('suaanhks');
+		Route::post('tinhtrang','AnhKhachSanController@TinhTrangAnhKS')->name('tinhtranganhks');
 	});
 
 });
@@ -75,6 +83,8 @@ Route::group(['prefix'=>'nguoidung'],function(){
 	Route::get('trangchu','TrangChuController@viewTrangChu')->name('trangchu');
 	Route::get('loaiphong/{id}','TrangChuController@viewLoaiPhong')->name('viewloaiphong');
 	Route::get('phong/{id}','TrangChuController@viewPhong')->name('viewphong');
+	Route::get('loaibaiviet/{tenloai}','TrangChuController@viewLoaiBaiViet')->name('viewloaibaiviet');
+	Route::get('baiviet/{tieude}','TrangChuController@viewBaiViet')->name('viewbaiviet');
 	//Route::get('datphong','TrangChuController@getCheckOut')->name('datphong');
 	Route::get('lienhe','TrangChuController@viewLienHe')->name('viewlienhe');
 	Route::get('gioithieu','TrangChuController@viewGioiThieu')->name('viewgioithieu');
@@ -83,5 +93,6 @@ Route::group(['prefix'=>'nguoidung'],function(){
 	Route::get('ajaxphong/{idphong}','TrangChuController@ChangePhong');
 	Route::post('checkout','TrangChuController@getCheckOut')->name('checkout');
 	Route::get('timkiem','TrangChuController@getTimKiem')->name('timkiem');
-
+	Route::post('success','TrangChuController@DatPhong')->name('success');
+	//Route::post('thanhcong','TrangChuController@DatPhong')->name('thanhcong');
 });

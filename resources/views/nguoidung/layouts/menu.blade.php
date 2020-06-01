@@ -29,7 +29,7 @@
                         <a href="rooms.html">Sự kiện</a>
                         <ul class="dropdown arrow-top">
                           @foreach($loaibaiviet as $lbv)
-                          <li><a href="#">{{$lbv->tenloai}}</a></li>
+                          <li><a href="{{route('viewloaibaiviet',['tenloai'=>$lbv->tenkhongdau.'-'.$lbv->id])}}">{{$lbv->tenloai}}</a></li>
                           @endforeach
                         </ul>
                       </li>

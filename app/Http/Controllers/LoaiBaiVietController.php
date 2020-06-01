@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\LoaiBaiViet;
 use App\BaiViet;
 
@@ -30,8 +31,8 @@ class LoaiBaiVietController extends Controller
             'tenloai.min'=>'Tên loại bài viết phải có đọ dài tự 3 đến 100 ký tự',
             'tenloai.max'=>'Tên loại bài viết phải có đọ dài tự 3 đến 100 ký tự',
         ]);
-
-    	$loaibaiviet = LoaiBaiViet::create(['tenloai'=>$request->tenloai]);
+        $tenkhongdau = strtolower(convert_vi_to_en($request->tenloai));
+    	$loaibaiviet = loaibaiviet::create(['tenloai'=>$request->tenloai,'tenkhongdau'=>$tenkhongdau]);
     	return redirect()->route('loaibaiviet')->with('thongbao','Thêm thành công');
     }
     public function postXoa(Request $request)
@@ -53,8 +54,8 @@ class LoaiBaiVietController extends Controller
             'tenloai.min'=>'Tên loại bài viết phải có đọ dài tự 3 đến 100 ký tự',
             'tenloai.max'=>'Tên loại bài viết phải có đọ dài tự 3 đến 100 ký tự',
         ]);
-
-    	LoaiBaiViet::find($request->id)->update(['tenloai'=>$request->tenloai]);
+        $tenkhongdau = strtolower(convert_vi_to_en($request->tenloai));
+    	loaibaiviet::find($request->id)->update(['tenloai'=>$request->tenloai,'tenkhongdau'=>$tenkhongdau]);
     	return redirect()->route('loaibaiviet')->with('thongbao','Sửa thành công');
     }
 

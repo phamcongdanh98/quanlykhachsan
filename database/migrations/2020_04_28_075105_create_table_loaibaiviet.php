@@ -16,6 +16,7 @@ class CreateTableLoaibaiviet extends Migration
         Schema::create('loaibaiviet', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('tenloai');
+            $table->string('tenkhongdau');
             $table->timestamps();
         });
     }

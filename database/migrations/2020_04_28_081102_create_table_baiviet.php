@@ -16,9 +16,11 @@ class CreateTableBaiviet extends Migration
         Schema::create('baiviet', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('tieude');
+            $table->text('tenkhongdau');
             $table->text('tomtat');
             $table->text('noidung');
             $table->string('hinh');
+            $table->integer('luotxem');
             $table->unsignedBigInteger('idLoaiBaiViet');
             $table->foreign('idLoaiBaiViet')->references('id')->on('loaibaiviet');
             $table->timestamps();

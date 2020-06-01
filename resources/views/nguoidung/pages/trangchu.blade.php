@@ -113,72 +113,12 @@
             </div>
           </div>
 
-          
-
-          
-
-          
-
         </div>
-      </div>
-    </div>
-    <!-- Quảng cáo -->
-    <div class="py-5 upcoming-events" style="background-image: url('trangchu_asset/images/hero_1.jpg'); background-attachment: fixed;">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-md-6">
-            <h2 class="text-white">Summer Promo 50% Off</h2>
-            <a href="#" class="text-white btn btn-outline-warning rounded-0 text-uppercase">Avail Now</a>
-          </div>
-          <div class="col-md-6">
-            <span class="caption">The Promo will start in</span>
-            <div id="date-countdown"></div>    
-          </div>
-        </div>
-        
       </div>
     </div>
     <!-- Khám phá hình ảnh -->
-    <div class="site-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 mx-auto text-center mb-5 section-heading">
-            <h2 class="mb-5">Phòng còn trống</h2>
-          </div>
-        </div>
-        <div class="row no-gutters">
-          <div class="col-md-6 col-lg-3">
-            <a href="trangchu_asset/images/img_1.jpg" class="image-popup img-opacity"><img src="trangchu_asset/images/img_1.jpg" alt="Image" class="img-fluid"></a>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <a href="trangchu_asset/images/img_2.jpg" class="image-popup img-opacity"><img src="trangchu_asset/images/img_2.jpg" alt="Image" class="img-fluid"></a>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <a href="trangchu_asset/images/img_3.jpg" class="image-popup img-opacity"><img src="trangchu_asset/images/img_3.jpg" alt="Image" class="img-fluid"></a>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <a href="trangchu_asset/images/img_4.jpg" class="image-popup img-opacity"><img src="trangchu_asset/images/img_4.jpg" alt="Image" class="img-fluid"></a>
-          </div>
-
-          <div class="col-md-6 col-lg-3">
-            <a href="trangchu_asset/images/img_4.jpg" class="image-popup img-opacity"><img src="trangchu_asset/images/img_4.jpg" alt="Image" class="img-fluid"></a>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <a href="trangchu_asset/images/img_5.jpg" class="image-popup img-opacity"><img src="trangchu_asset/images/img_5.jpg" alt="Image" class="img-fluid"></a>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <a href="trangchu_asset/images/img_6.jpg" class="image-popup img-opacity"><img src="trangchu_asset/images/img_6.jpg" alt="Image" class="img-fluid"></a>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <a href="trangchu_asset/images/img_7.jpg" class="image-popup img-opacity"><img src="trangchu_asset/images/img_7.jpg" alt="Image" class="img-fluid"></a>
-          </div>
-
-        </div>
-      </div>
-    </div>
+   @include('nguoidung.layouts.hinhanh')
     
-
-
     <div class="site-section block-15">
       <div class="container">
         <div class="row">
@@ -360,79 +300,10 @@
       </div>
       
     </div>
-    
-    <!-- Địa chỉ -->
-    <div class="py-5 quick-contact-info">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 text-center">
-            <div>
-              <span class="icon-room text-white h2 d-block"></span>
-              <h2>Location</h2>
-              <p class="mb-0">New York - 2398 <br>  10 Hadson Carl Street</p>
-            </div>
-          </div>
-          <div class="col-md-4 text-center">
-            <div>
-              <span class="icon-clock-o text-white h2 d-block"></span>
-              <h2>Service Times</h2>
-              <p class="mb-0">Wednesdays at 6:30PM - 7:30PM <br>
-              Fridays at Sunset - 7:30PM <br>
-              Saturdays at 8:00AM - Sunset</p>
-            </div>
-          </div>
-          <div class="col-md-4 text-center">
-            <div>
-              <span class="icon-comments text-white h2 d-block"></span>
-              <h2>Get In Touch</h2>
-              <p class="mb-0">Email: info@yoursite.com <br>
-              Phone: (123) 3240-345-9348 </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
 @endsection
 
 @section('slide')
-<!-- <div class="slide-one-item home-slider owl-carousel">
-      
-      <div class="site-blocks-cover overlay" style="background-image: url(trangchu_asset/images/hero_1.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
-        <div class="container">
-          <div class="row align-items-center justify-content-center">
-            <div class="col-md-7 text-center" data-aos="fade">
-              
-              <h1 class="mb-2">Welcome To Suites</h1>
-              <h2 class="caption">Hotel &amp; Resort</h2>
-            </div>
-          </div>
-        </div>
-      </div>  
-
-      <div class="site-blocks-cover overlay" style="background-image: url(trangchu_asset/images/hero_2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
-        <div class="container">
-          <div class="row align-items-center justify-content-center">
-            <div class="col-md-7 text-center" data-aos="fade">
-              <h1 class="mb-2">Unique Experience</h1>
-              <h2 class="caption">Enjoy With Us</h2>
-            </div>
-          </div>
-        </div>
-      </div> 
-
-      <div class="site-blocks-cover overlay" style="background-image: url(trangchu_asset/images/hero_3.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
-        <div class="container">
-          <div class="row align-items-center justify-content-center">
-            <div class="col-md-7 text-center" data-aos="fade">
-              <h1 class="mb-2">Relaxing Room</h1>
-              <h2 class="caption">Your Room, Your Stay</h2>
-            </div>
-          </div>
-        </div>
-      </div> 
-
-    </div> -->
 
 <div class="slide-one-item home-slider owl-carousel">
       @foreach($slide as $sl)

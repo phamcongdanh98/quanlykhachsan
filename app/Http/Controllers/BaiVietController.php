@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\BaiViet;
 use App\LoaiBaiViet;
 
@@ -48,6 +49,9 @@ class BaiVietController extends Controller
         $baiviet->idLoaiBaiViet=$request->loaibaiviet;
         $baiviet->tomtat=$request->tomtat;
         $baiviet->noidung=$request->noidung;
+        $tenkhongdau = strtolower(convert_vi_to_en($request->tieude));
+        $baiviet->tenkhongdau=$tenkhongdau;
+        $baiviet->luotxem='0';
 
         if($request->hasFile('hinh'))
         {
@@ -80,6 +84,7 @@ class BaiVietController extends Controller
     
     public function postSua(Request $request)
     {
+
         $this->validate($request,
         [
             'tieude'=> 'required|min:3|max:100',
@@ -98,9 +103,13 @@ class BaiVietController extends Controller
             'tomtat.max'=>'Tóm tắt bài viết phải có đọ dài tự 3 đến 150 ký tự',
         ]);
         $baiviet1=BaiViet::find($request->id);
+        $anh_cu=$baiviet1->hinh;
         $baiviet1->tieude=$request->tieude;
         $baiviet1->tomtat=$request->tomtat;
         $baiviet1->noidung=$request->noidung;
+        $tenkhongdau = strtolower(convert_vi_to_en($request->tieude));
+        $baiviet1->tenkhongdau=$tenkhongdau;
+        $baiviet1->luotxem='0';
         if($request->hasFile('hinh'))
         {
 
@@ -120,12 +129,18 @@ class BaiVietController extends Controller
         }
         else
         {
-            $baiviet1->hinh="";
+            $baiviet1->hinh=$anh_cu;
         }
         $baiviet1->idLoaiBaiViet=$request->loaibaiviet;
         $baiviet1->save();
         return redirect()->route('baiviet')->with('thongbao','Sửa thành công');
 
+    }
+
+    public function getAjax(Request $request){
+        $baiviet = BaiViet::findOrFail($request->id);
+        $loaibaiviet = LoaiBaiViet::all();
+        return view('admin.pages.baiviet.ajax',['baiviet'=>$baiviet,'loaibaiviet'=>$loaibaiviet]);
     }
 
 

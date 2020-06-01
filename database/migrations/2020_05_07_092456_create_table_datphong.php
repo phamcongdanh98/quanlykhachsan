@@ -20,6 +20,7 @@ class CreateTableDatphong extends Migration
             $table->integer('soluongphong');
             $table->integer('soluongkhach');
             $table->integer('check');
+            $table->double('tonggia');
             $table->unsignedBigInteger('idPhong');
             $table->foreign('idPhong')->references('id')->on('phong');
             $table->unsignedBigInteger('idKhachHang');

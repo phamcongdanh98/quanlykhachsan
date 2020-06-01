@@ -9,6 +9,8 @@ class BaiViet extends Model
     protected $table="baiviet";
     protected $fillable = [
     	'tieude',
+        'tenkhongdau',
+        'luotxem',
     	'tomtat',
     	'noidung',
     	'hinh',

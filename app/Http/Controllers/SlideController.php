@@ -10,7 +10,7 @@ class SlideController extends Controller
 {
     public function getDanhsach()
     {
-    	$slide= Slide::all();
+    	$slide= slide::all();
     	return view('admin.pages.slide.danhsach',['slide'=>$slide]);
     }
 
@@ -55,13 +55,13 @@ class SlideController extends Controller
     }
     public function postXoa(Request $request)
     {
-    	Slide::delslide($request->id);
+    	slide::delslide($request->id);
     }
     
     public function postSua(Request $request)
     {
-         $slide2= Slide::find($request->id);
-         $anh_cu=$slide2->hinh;
+         $slide= slide::find($request->id);
+         $anh_cu=$slide->hinh;
          $this->validate($request,[
             'tieude' => 'required|min:5|max:50',
             'chuthich' => 'required|min:5|max:50',
@@ -94,10 +94,10 @@ class SlideController extends Controller
         {
            $anh_slide=$anh_cu;
         }
-        Slide::find($request->id)->update(['tieude'=>$request->tieude,'chuthich'=>$request->chuthich,'hinh'=>$anh_slide]);
+        slide::find($request->id)->update(['tieude'=>$request->tieude,'chuthich'=>$request->chuthich,'hinh'=>$anh_slide]);
         return redirect()->route('slide')->with('thongbao','Thêm Thành Công');
     }
     public function TinhTrangSlide(Request $request){
-        Slide::find($request->id)->update(['tinhtrang'=>$request->tinhtrang]);
+        slide::find($request->id)->update(['tinhtrang'=>$request->tinhtrang]);
     }
 }

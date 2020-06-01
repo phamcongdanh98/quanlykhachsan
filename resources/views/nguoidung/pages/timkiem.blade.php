@@ -22,9 +22,9 @@
           
             
           
-            <form action="#" method="POST" enctype="multipart/form-data" id="datphong_form">
+            <form action="{{route('checkout')}}" method="POST" enctype="multipart/form-data" id="datphong_form">
                         @csrf
-                        
+                        <input type="hidden" name="id" value="{{$phong->id}}">
                         <div class="form-group">
                             <div class="col-md-12">
                                 <label for="name">Họ tên: </label> <span class="error_form" id="loi_ten_thongbao"></span>
@@ -62,7 +62,7 @@
                         <div class="col-md-12">
                           <div id="thuthoi">
                             </div>
-                            <button type="submit" class="btn btn-success" style="width: 120px;">Thêm</button>
+                            <button type="submit" class="btn btn-success" style="width: 120px;">Tiếp tục</button>
                         </div>
                     </form>
           </div>

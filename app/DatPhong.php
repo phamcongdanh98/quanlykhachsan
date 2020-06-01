@@ -12,8 +12,10 @@ class DatPhong extends Model
         'ngaytraphong',
         'soluongphong',
         'check',
-        'idPhong'.
-        'idKhachHang'
+        'idPhong',
+        'soluongkhach',
+        'idKhachHang',
+        'tonggia'
     ];
 
     public function phong()

@@ -29,12 +29,12 @@
 
 
 @section('slide')
-    <div class="site-blocks-cover overlay" style="background-image: url(trangchu_asset/images/anh2.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
+    <div class="site-blocks-cover overlay" style="background-image: url(trangchu_asset/images/hero_3.jpg);" data-aos="fade" data-stellar-background-ratio="0.5">
         <div class="container">
           <div class="row align-items-center justify-content-center">
             <div class="col-md-7 text-center" data-aos="fade">
               <span class="caption mb-3">Suites Hotel &amp; Resort</span>
-              <h1 class="mb-4">About Us</h1>
+              <h1 class="mb-4">Phòng Khách sạn</h1>
             </div>
           </div>
         </div>
